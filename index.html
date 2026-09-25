@@ -1251,6 +1251,7 @@
 
     /* RESPONSIVE LAYER — preserves the desktop/A4 composition, adapts only at narrow widths */
     @media screen and (max-width: 900px) {
+
       html,
       body {
         background: var(--ivory);
@@ -1555,10 +1556,45 @@
       }
     }
 
+    .language-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin: 0 auto 10px;
+      width: min(1180px, 100%);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+
+    .language-switch a {
+      color: var(--ink);
+      text-decoration: none;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, .7);
+    }
+
+    .language-switch a.active {
+      color: var(--teal);
+      border-color: #cfe7e5;
+      background: var(--soft);
+    }
+
+    @media print {
+      .language-switch {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <nav class="language-switch" aria-label="Sélecteur de langue">
+    <a href="index.html" lang="en">🇬🇧 English</a>
+    <a href="CV-fr" class="active" lang="fr">🇫🇷 Français</a>
+  </nav>
   <main class="page">
 
     <header class="header">
@@ -1645,7 +1681,8 @@
             Education
           </div>
           <div class="side-title">ISC Paris Business School</div>
-          <div class="side-text">Master’s in Marketing &amp; Management of Information Technologies · Paris, France
+          <div class="side-text">Double Master’s in Marketing &amp; Management of Information Technologies 2009 · Paris,
+            France
           </div>
         </section>
 
@@ -1766,10 +1803,11 @@
 
         <section class="earlier">
           <div class="section-title">Earlier experience</div>
-          <div class="item"><strong>Microsoft</strong> · Web Project Manager · Paris · <span>2009–2010</span></div>
-          <div class="item"><strong>Danone</strong> · Change Manager Web 2.0 · Paris · <span>2010–2011</span></div>
-          <div class="item"><strong>Toboc</strong> · Product Owner · Bangalore · <span>2013–2014</span></div>
           <div class="item"><strong>OnlyHers</strong> · Founder / Product Owner · Bangalore · <span>2014–2016</span>
+          </div>
+          <div class="item"><strong>Toboc</strong> · Product Owner · Bangalore · <span>2013–2014</span></div>
+          <div class="item"><strong>Danone</strong> · Change Manager Web 2.0 · Paris · <span>2010–2011</span></div>
+          <div class="item"><strong>Microsoft</strong> · Web Project Manager · Paris · <span>2009–2010</span>
           </div>
         </section>
       </section>
