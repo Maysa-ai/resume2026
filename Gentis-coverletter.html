@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maysa Aiman — Gentis × IA</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    /* Gentis letter — same design tokens as the resume (resume2026/styles.css).
+       Desktop/print: A4 composition. Narrow screens: single fluid column. */
+
+    :root {
+      --ink: #17233B;
+      --body: #48515A;
+      --muted: #737A82;
+      --teal: #14999B;
+      --coral: #E56B4E;
+      --ivory: #FCFAF7;
+      --line: #DDE2E1;
+      --soft: #F0F7F6;
+      --soft-line: #CFE7E5;
+      --coral-line: #F1D8CE;
+      --white: #fff;
+      --paper: #FFFDFA;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #e9e8e4;
+    }
+
+    body {
+      margin: 0;
+      background: #e9e8e4;
+      color: var(--body);
+      font-family: "DM Sans", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ---------- Page ---------- */
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 32px auto;
+      padding: 15mm 19mm 11mm;
+      background: var(--paper);
+      box-shadow: 0 18px 60px rgba(23, 35, 59, .10);
+    }
+
+    /* ---------- Header ---------- */
+
+    .header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: start;
+      padding-bottom: 19pt;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8pt;
+      color: var(--coral);
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 30pt;
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: .98;
+    }
+
+    .headline {
+      margin: 13pt 0 0;
+      color: var(--teal);
+      font-size: 7.2pt;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1px;
+      color: var(--muted);
+      font-size: 7.6pt;
+      font-style: normal;
+      line-height: 12.4pt;
+      text-align: right;
+    }
+
+    .contact strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---------- Letter ---------- */
+
+    .letter {
+      flex: 1;
+      padding-bottom: 28px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 23pt 0 0;
+      color: var(--ink);
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .subject {
+      margin: 19pt 0 0;
+    }
+
+    .letter .subject-label {
+      margin: 0;
+      color: var(--muted);
+      font-size: 6.4pt;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .letter .subject-line {
+      margin: 7pt 0 0;
+      color: var(--ink);
+      font-size: 13.5pt;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      line-height: 1.25;
+    }
+
+    .letter p {
+      margin: 0 0 9.5pt;
+      font-size: 10pt;
+      line-height: 1.54;
+    }
+
+    .letter strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .letter .greeting {
+      margin-top: 25pt;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .intro-name {
+      color: var(--coral);
+      font-weight: 700;
+    }
+
+    /* The central question */
+    .letter .callout {
+      margin: 13pt 0 15pt;
+      padding: 11pt 14pt;
+      background: #F1F6F3;
+      border: 1px solid #DFE8E3;
+      border-radius: 5px;
+      box-shadow: none;
+    }
+
+    /* ---------- Proof cards (same pattern as the resume metrics) ---------- */
+
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7pt;
+      margin: 4pt 0 17pt;
+      padding: 0;
+      list-style: none;
+    }
+
+    .metric {
+      min-height: 40pt;
+      padding: 8pt 10pt;
+      background: var(--white);
+      border: 1px solid var(--coral-line);
+      border-radius: 4px;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--coral);
+      font-size: 15pt;
+      font-weight: 700;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 4pt;
+      color: var(--muted);
+      font-size: 6.2pt;
+      font-weight: 700;
+      letter-spacing: .06em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .metric-primary {
+      background: var(--soft);
+      border-color: var(--soft-line);
+    }
+
+    .metric-primary span {
+      color: var(--teal);
+    }
+
+    /* ---------- Closing ---------- */
+
+    .letter .ask {
+      margin: 13pt 0 19pt;
+      color: var(--ink);
+      font-size: 11pt;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .letter .closing {
+      margin-bottom: 4pt;
+    }
+
+    .letter .signature {
+      margin: 0 0 20pt;
+      color: var(--ink);
+      font-size: 15pt;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 16px;
+      background: var(--soft);
+      border: 1px solid var(--soft-line);
+      border-radius: 7px;
+      color: var(--teal);
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: .15em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .pill:hover {
+      border-color: var(--teal);
+    }
+
+    /* ---------- Footer ---------- */
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 10pt;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 6pt;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .footer .left {
+      color: var(--ink);
+    }
+
+    .footer .right {
+      color: var(--teal);
+      text-align: right;
+    }
+
+    /* ---------- Narrow screens ---------- */
+
+    @media screen and (max-width: 820px) {
+      html,
+      body {
+        background: var(--ivory);
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 28px 22px 26px;
+        box-shadow: none;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-bottom: 22px;
+      }
+
+      .eyebrow {
+        font-size: 8.5px;
+      }
+
+      h1 {
+        font-size: clamp(28px, 9vw, 36px);
+      }
+
+      .headline {
+        font-size: 9px;
+        line-height: 1.4;
+      }
+
+      .contact {
+        font-size: 11px;
+        line-height: 1.6;
+        text-align: left;
+      }
+
+      .section-title {
+        margin-top: 28px;
+        font-size: 9px;
+      }
+
+      .letter .subject-label {
+        font-size: 8.5px;
+      }
+
+      .letter .subject-line {
+        font-size: 17px;
+      }
+
+      .letter p {
+        font-size: 14px;
+        line-height: 1.55;
+        margin-bottom: 12px;
+      }
+
+      .letter .ask {
+        font-size: 15px;
+      }
+
+      .letter .signature {
+        font-size: 20px;
+      }
+
+      .letter .callout {
+        padding: 14px 16px;
+      }
+
+      .metric strong {
+        font-size: 20px;
+      }
+
+      .metric span {
+        font-size: 9px;
+      }
+
+      .pill {
+      font-size: 10px;
+      padding: 9px 16px;
+    }
+
+      .footer {
+        flex-wrap: wrap;
+        font-size: 8px;
+      }
+    }
+
+    @media screen and (max-width: 560px) {
+      .proof {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .metric {
+        min-height: 0;
+      }
+    }
+
+    /* ---------- Print: one A4 page, same as the PDF ---------- */
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      html,
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="header">
+      <div class="identity">
+        <p class="eyebrow">Candidature spontanée · Gentis</p>
+        <h1>Maysa Aiman</h1>
+        <p class="headline">Product Lead · Senior Product Manager</p>
+      </div>
+
+      <address class="contact">
+        <span>Paris, France</span>
+        <span>+33 7 71 50 26 87</span>
+        <strong><a href="mailto:aimanmaysa@gmail.com">aimanmaysa@gmail.com</a></strong>
+      </address>
+    </header>
+
+    <main class="letter">
+      <h2 class="section-title">À l’attention de Stéphanie Reniers</h2>
+
+      <div class="subject">
+        <p class="subject-label">Objet</p>
+        <p class="subject-line">Recrutement et IA&nbsp;: repenser la valeur d’un cabinet</p>
+      </div>
+
+      <p class="greeting">Bonjour Stéphanie,</p>
+
+      <p>
+        En suivant vos réflexions sur l’évolution du recrutement et la place grandissante de l’IA, je me suis intéressée à une question qui me semble particulièrement intéressante pour un cabinet comme Gentis.
+      </p>
+
+      <p class="callout">
+        Comment l’IA peut-elle aider à mieux révéler le potentiel des candidats et permettre aux consultants de se concentrer sur ce qui fait réellement la différence dans leur métier&nbsp;? Au-delà de l’automatisation, j’y vois une occasion de repenser certains usages et d’imaginer de nouvelles façons de créer de la valeur.
+      </p>
+
+      <p>
+        Depuis près de 15 ans maintenant, je conçois et lance des produits digitaux&nbsp;: la refonte complète du site et des apps de <strong>Pepperfry</strong>, plus grand marketplace de meubles en Inde, ou une application d’exercices pour patients chez <strong>Biogen</strong>, sous contrainte RGPD. Je suis aussi entrepreneure&nbsp;: j’ai monté une activité de revente de meubles puis une usine en Inde, et je dirige aujourd’hui mon propre cabinet de conseil. <strong>Je sais ce que c’est de construire une activité de A à Z.</strong> Ces dernières années, je me suis concentrée sur l’IA appliquée, du prototypage à la validation de cas d’usage.
+      </p>
+
+      <ul class="proof" aria-label="Quelques repères chiffrés">
+        <li class="metric metric-primary">
+          <strong>+12&nbsp;%</strong>
+          <span>Conversion YoY · Pepperfry</span>
+        </li>
+        <li class="metric">
+          <strong>5</strong>
+          <span>Marchés · Rollout Biogen</span>
+        </li>
+        <li class="metric">
+          <strong>4–6</strong>
+          <span>Conteneurs / mois · BangaloreHunts</span>
+        </li>
+      </ul>
+
+      <p>
+        J’aimerais mettre cette expérience au service d’une entreprise avec laquelle construire dans la durée, en poste ou en mission. Je ne prétends pas connaître vos priorités, et c’est justement ce qui rendrait l’échange intéressant.
+      </p>
+
+      <p class="ask">Seriez-vous partante pour en discuter 15&nbsp;minutes&nbsp;?</p>
+
+      <p class="closing">Au plaisir d’échanger,</p>
+      <p class="signature">Maysa</p>
+
+      <nav class="links" aria-label="Mon travail">
+        <a class="pill" href="https://maysa-ai.github.io/portfolio/">Portfolio</a>
+        <a class="pill" href="https://maysa-ai.github.io/resume2026/">CV</a>
+        <a class="pill" href="https://www.linkedin.com/in/maysa-aiman-a76a0314/">LinkedIn</a>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <span class="left">Maysa Aiman · Product Management · Strategy · Growth</span>
+      <span class="right">AI &amp; Digital Transformation</span>
+    </footer>
+
+  </div>
+</body>
+</html>
